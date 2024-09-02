@@ -16,4 +16,12 @@ describe('Cert', function () {
 
         expect(cert.deploymentTransaction().from).to.equal(admin.address);
     });
+
+    it ('testing issue', async function(){
+        const { cert } = await loadFixture(deployCertFixture);
+
+        await expect(cert.issue(101,'rahul','EDP','A','25th Jan 2024'))
+        .to.emit(cert,'Issued')
+        .withArgs('EDP',101,'A')
+    })
 });
