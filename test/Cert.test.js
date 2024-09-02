@@ -24,4 +24,19 @@ describe('Cert', function () {
         .to.emit(cert,'Issued')
         .withArgs('EDP',101,'A')
     })
+
+    it('Read value',async function(){
+        const { cert } = await loadFixture(deployCertFixture)
+
+        await cert.issue(10,'Manu','EDP','D','24th Jan 2024');
+        const certificates = await cert.Certificates(10);
+
+        console.log(certificates) 
+
+        expect(certificates[0]).to.equal('Manu');
+        expect(certificates[1]).to.equal('EDP');
+        expect(certificates[2]).to.equal('D');
+        expect(certificates[3]).to.equal('24th Jan 2024');
+
+    })
 });
