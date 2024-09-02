@@ -31,12 +31,19 @@ describe('Cert', function () {
         await cert.issue(10,'Manu','EDP','D','24th Jan 2024');
         const certificates = await cert.Certificates(10);
 
-        console.log(certificates) 
+        // console.log(certificates) 
 
         expect(certificates[0]).to.equal('Manu');
         expect(certificates[1]).to.equal('EDP');
         expect(certificates[2]).to.equal('D');
         expect(certificates[3]).to.equal('24th Jan 2024');
 
+    })
+
+    it("Test issue in authority", async function(){
+        const { cert,other } = await loadFixture(deployCertFixture);
+
+        await expect(cert.connect(other).issue(10,'Manu','EDP','D','24th Jan 2024'))
+        .to.be.revertedWith('Access Denied')
     })
 });
