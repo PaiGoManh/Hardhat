@@ -8,7 +8,7 @@ describe('Cert', function () {
         const Cert = await ethers.getContractFactory('Cert');
         const cert = await Cert.deploy();
 
-        return { admin, other, cert };
+        return { admin, other, cert  };
     }
 
     it('Should set the right admin value', async function () {
