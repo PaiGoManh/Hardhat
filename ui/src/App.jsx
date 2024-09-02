@@ -1,5 +1,5 @@
 import React from 'react'
-import GetCertificate from './GetCertificate'
+
 import { BrowserProvider } from 'ethers'
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
           Connect to MetaMask
         </div>
         <div className='mt-10 ml-4 bg-[orange] text-black w-[200px] h-10 p-2 pl-3'>
-          <a href={GetCertificate}>Get Certificate Data</a>
+          <a>Get Certificate Data</a>
         </div>
       </div>
 
